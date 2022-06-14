@@ -39,8 +39,13 @@ public class WebServiceConfig extends WsConfigurerAdapter {
         return new SimpleXsdSchema(new ClassPathResource("springRabbitMQ.xsd"));
     }
 
-    @Bean
+    @Bean("senderQueue")
     public Queue senderQueue() {
         return new Queue("senderQueue", false);
+    }
+
+    @Bean("testQueue")
+    public Queue testQueue(){
+        return new Queue("testQueue", false);
     }
 }

@@ -34,4 +34,10 @@ public class MessageEndpoint {
     public SendMessageResponse sendMessage(@RequestPayload SendMessageRequest request){
         return messageService.sendMessage(request);
     }
+
+    @PayloadRoot(namespace = NAMESPACE_URI, localPart = "testRabbitMqRequest")
+    @ResponsePayload
+    public TestRabbitMqResponse testRabbitMq(@RequestPayload TestRabbitMqRequest request){
+        return messageBrokerService.testMessage(request);
+    }
 }
