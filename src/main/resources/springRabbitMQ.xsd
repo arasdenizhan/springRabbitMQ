@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://arasdenizhan.github.io/rabbit"
+           targetNamespace="http://arasdenizhan.github.io/rabbit"
+           elementFormDefault="qualified">
+
+    <xs:element name="sendMessageRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="sendMessageResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="tns:messageDto"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMessageRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="messageNumber" type="xs:int"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getMessageResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="tns:messageDto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRabbitMessagesRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="queueName" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getRabbitMessagesResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="message" type="tns:messageDto" maxOccurs="unbounded"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="messageDto">
+        <xs:sequence>
+            <xs:element name="message" type="xs:string"/>
+            <xs:element name="sentDate" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
