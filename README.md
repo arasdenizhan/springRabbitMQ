@@ -1,5 +1,6 @@
 # Spring RabbitMQ Example
 
+- Spring Boot, H2 Database, RabbitMQ, SOAP
 - Back-end serves at `http://localhost:8080`.
 - RabbitMQ serves at `http://localhost:5672`.
 - RabbitMQ Management Panel serves at `http://localhost:15672`.
