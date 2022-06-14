@@ -52,7 +52,7 @@ public class MessageBrokerServiceImpl implements MessageBrokerService {
     }
 
     @RabbitListener(queues = "testQueue")
-    public void listen(String in) {
+    private void listen(String in) {
         log.info("Consumed test message: {}", in);
     }
 }
